@@ -25,6 +25,8 @@
 /* Begin PBXFileReference section */
 		EDFB387A24DC308000006D33 /* testxcode11 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = testxcode11; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDFB387D24DC308000006D33 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		EDFB388424DC32A100006D33 /* wwwq.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wwwq.h; sourceTree = "<group>"; };
+		EDFB388524DC32A100006D33 /* wwwq.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = wwwq.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				EDFB387D24DC308000006D33 /* main.c */,
+				EDFB388424DC32A100006D33 /* wwwq.h */,
+				EDFB388524DC32A100006D33 /* wwwq.c */,
 			);
 			path = testxcode11;
 			sourceTree = "<group>";
