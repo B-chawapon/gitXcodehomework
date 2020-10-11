@@ -1,2 +1,0 @@
-# gitXcodehomework
- lern coding
