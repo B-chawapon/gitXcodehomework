@@ -18,47 +18,50 @@ int main()
     {
         if(i==0)
         {
-            printf("Enter first hours mins seconds : ");
+            printf("Enter speed1 hours mins seconds : ");
             scanf("%d %d %d",&timestat[i].hours,&timestat[i].mins,&timestat[i].seconds);
             printf("Time stat 1 is %d:%d:%d\n",timestat[i].hours,timestat[i].mins,timestat[i].seconds);
         }
         else{
-            printf("Enter second hours mins seconds : ");
+            printf("Enter speed2 hours mins seconds : ");
             scanf("%d %d %d",&timestat[i].hours,&timestat[i].mins,&timestat[i].seconds);
             printf("Time stat 2 is %d:%d:%d\n",timestat[i].hours,timestat[i].mins,timestat[i].seconds);
         }
         
     }
     finddeltatime(timestat,&diff);
-    printf("%d",(diff.hours));
-    printf(":%d",(diff.mins));
-    printf(":%d",(diff.seconds));
+    printf("%d",abs(diff.hours));
+    printf(":%d",abs(diff.mins));
+    printf(":%d",abs(diff.seconds));
    
     
     return 0;
     
 }
-void finddeltatime(struct time timestat[],struct time *diff)
+void finddeltatime(struct time timestat[2],struct time *diff)
 {
-    
-    while (timestat[1].seconds>timestat[0].seconds) {
-        --timestat[0].mins;
-        timestat[0].seconds+=60;
-    }
-    diff->seconds = (timestat[0].seconds-timestat[1].seconds);
-    while (timestat[1].mins>timestat[0].mins) {
-        --timestat[0].hours;
-        timestat[0].mins+=60;
-    }
-   
-    diff->mins = (timestat[0].mins-timestat[1].mins);
-    diff->hours = (timestat[0].hours-timestat[1].hours);
-   
-    //printf("sec %d\n",abs(diff->seconds));
-   
-   // printf("min %d\n",abs(diff->mins));
-   
-   // printf("hours %d\n",abs(diff->hours));
+    struct time totalseconds[2];
+    int diftempsec,mintemp;
+    for(i=0;i<1;i++)
+    {
+       totalseconds[i].seconds =((((timestat[i].hours*60)+timestat[i].mins)*60)+timestat[i].seconds);
+        //printf("\n%d ",totalseconds[i].seconds);
+        totalseconds[i+1].seconds =((((timestat[i+1].hours*60)+timestat[i+1].mins)*60)+timestat[i+1].seconds);
+        //printf(" %d\n",totalseconds[i+1].seconds);
+        
+        diftempsec=totalseconds[i].seconds-totalseconds[i+1].seconds;
+        //printf("\n%d ",diftempsec);
+        
+        mintemp=diftempsec/60;
 
+        diff->seconds = (diftempsec%60);
+        diff->mins = (mintemp%60);
+        diff->hours = (mintemp/60);
+    }
+    
+   
+  
+   
+   
 
 }
