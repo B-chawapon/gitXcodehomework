@@ -70,28 +70,25 @@ void find()
         
         if((test.wheels==ducar.du[i].wheels)&&(test.wheels==wacar.wa[i].wheels))
         {
-           
-            if(test.pow==2){
-             if(test.speed<=ducar.du[i].speed)
+            if(test.pow==2)
+            {
+           if((test.speed<=ducar.du[i].speed))  //200 180 250    80 60 40
+           {
+               if((test.speed>wacar.wa[i].speed)) 
+               {
+                       checkducar+=1;
+               }
+                else
                 {
-                    if(test.speed>=180)
-                    {
-                        checkducar+=1;
-                    }
-                    else
-                    {
-                        if(test.speed<=wacar.wa[i].speed)
-                        {
-                            checkwave+=1;
-                            checkducar+=1;
-                        }
-                        else{
-                            
-                            checkducar+=1;
-                        }
-                    }
+               checkducar+=1;
+               checkwave+=1;
                 }
+           }
             }
+          
+           
+            
+            
         }
     }
 }
