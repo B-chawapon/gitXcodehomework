@@ -7,30 +7,28 @@ struct car {
     int pow;
     int wheels;
 
-};
+}test;
 struct tesla {
     
     struct car te[3]={{185,1,4},{165,1,4 },{200,1,4 }};
     
-};
+}te1car;
 struct toyota {
     struct car to[3]={{100,2,4},{80,2,4},{120,2,4}};
-};
+}tocar;
 struct ducati {
     struct car du[3]={{200,2,2},{180,2,2},{250,2,2}};
-};
+}ducar;
 struct wave {
     struct car wa[3]={{80,2,2},{60,2,2},{40,2,2}};
-};
-struct tesla te1car;
-struct toyota tocar;
-struct ducati ducar;
-struct wave wacar;
-struct car test;
-int checktesla =0;
-int checktoyota=0;
-int checkducar=0;
-int checkwave=0;
+}wacar;
+
+
+struct checkstat
+{
+    int check=0;
+}teslac,toyatac,ducarc,wavec;
+
 void find();
 void answer();
 int main()
@@ -38,14 +36,7 @@ int main()
    
     scanf("%d %d %d",&test.speed,&test.pow,&test.wheels);
     find();
-    printf("%d\n",checktesla);
-    printf("%d\n",checktoyota);
-    printf("%d\n",checkducar);
-    printf("%d\n",checkwave);
     answer();
-    
-    
-    
     return 0;
 }
 void find()
@@ -57,50 +48,47 @@ void find()
            if(test.pow==1)
            {
                if(test.speed   <= te1car.te[i].speed){
-               checktesla+=1;
+               teslac.check+=1;
                }
                
            }
            else{
                if(test.speed<=tocar.to[i].speed){
-               checktoyota+=1;
+               toyatac.check+=1;
                 }
            }
         }
         
         if((test.wheels==ducar.du[i].wheels)&&(test.wheels==wacar.wa[i].wheels))
         {
-           
-            if(test.pow==2){
-             if(test.speed<=ducar.du[i].speed)
+            if(test.pow==2)
+            {
+           if((test.speed<=ducar.du[i].speed))  //200 180 250    80 60 40
+           {
+               if((test.speed>wacar.wa[i].speed)) 
+               {
+                       ducarc.check+=1;
+               }
+                else
                 {
-                    if(test.speed>=180)
-                    {
-                        checkducar+=1;
-                    }
-                    else
-                    {
-                        if(test.speed<=wacar.wa[i].speed)
-                        {
-                            checkwave+=1;
-                            checkducar+=1;
-                        }
-                        else{
-                            
-                            checkducar+=1;
-                        }
-                    }
+               ducarc.check+=1;
+               wavec.check+=1;
                 }
+           }
             }
+          
+           
+            
+            
         }
     }
 }
 void answer()
 {
-    if(checktesla!=0 || checktoyota!=0 ){
-    if(checktesla>=checktoyota)
+    if(teslac.check!=0 || toyatac.check!=0 ){
+    if(teslac.check>= toyatac.check)
     {
-        if (checktesla==checktoyota) {
+        if (teslac.check== toyatac.check) {
             printf("Tesla or Toyota\n");
         }
         else{
@@ -112,10 +100,10 @@ void answer()
     }
     }
     
-    if(checkducar!=0 || checkwave!=0 ){
-    if(checkducar>=checkwave)
+    if(ducarc.check!=0 || wavec.check!=0 ){
+    if(ducarc.check>=wavec.check)
     {
-        if (checkducar==checkwave) {
+        if (ducarc.check==wavec.check) {
             printf("Ducati or Wave\n");
         }
         else{
@@ -127,7 +115,7 @@ void answer()
     }
     }
     
-    if(checkwave==0 &&checkducar==0 && checktesla==0 &&checktoyota==0)
+    if(wavec.check==0 &&ducarc.check==0 && teslac.check==0 &&toyatac.check==0)
     {
         printf("what is a car?\n");
     }
