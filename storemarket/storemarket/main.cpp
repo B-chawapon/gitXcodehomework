@@ -100,10 +100,12 @@ int main()
     }
     //printf("%f\n",totalprice);
     //printf("Total price with Vat 7%% = %f\n",totalprice);
-    if(totalprice>yourMoney)
+    if(totalprice<=yourMoney)
     {
+       printf("*Your Change = %f\n",yourMoney-totalprice);
+    }
+    else{
         printf("You haven't enough money\n");
-        
     }
     /*else{
         printf("Your Change = %f\n",yourMoney-totalprice);
