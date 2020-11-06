@@ -43,7 +43,7 @@ int main()
     }
     if(countbit<(8*limit)||check1or2==1)
     {
-        if(countbit<(8*limit))
+        if(countbit<(8*limit)&&check1or2==0)
         {
         printf("Not enough");
         }
