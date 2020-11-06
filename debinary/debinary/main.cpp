@@ -4,7 +4,7 @@
 #include<math.h>
 int bit;
 int n;
-int answer[2]={0,0};
+int answer[999]={0,0};
 int i=0;
 bool check1or2=0;
 int countbit=0;
