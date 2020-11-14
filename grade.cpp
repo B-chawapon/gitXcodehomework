@@ -34,7 +34,7 @@ void findTotal(struct score studentfunction) {
 		totalweight += student.weight[i];
 	}
 
-	cout << total <<'\n' << totalweight;
+	//cout << total <<'\n' << totalweight;
 }
 
 void grade() 
