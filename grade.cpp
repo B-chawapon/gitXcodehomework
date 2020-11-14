@@ -74,6 +74,10 @@ void grade()
 		{
 			cout << "F";
 		}
+		else if (temp < 45)
+		{
+			cout << "GO HOME";
+		}
 		
 	
 }
